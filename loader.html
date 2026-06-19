@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Yash Gupta — Data Science & Full Stack Developer Portfolio">
+  <title>Yash Gupta | Initializing...</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    /* ===== RESET ===== */
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html, body { width: 100%; height: 100%; overflow: hidden; }
+
+    body {
+      background: #000000;
+      font-family: 'JetBrains Mono', monospace;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+
+    /* ===== GRID BACKGROUND ===== */
+    .grid-bg {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+      background-size: 60px 60px;
+      animation: gridPulse 4s ease-in-out infinite;
+    }
+    @keyframes gridPulse {
+      0%, 100% { opacity: 0.5; }
+      50% { opacity: 1; }
+    }
+
+    /* ===== SCANLINE ===== */
+    .scanline {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 2px;
+      background: linear-gradient(90deg, transparent, rgba(255,215,0,0.4), transparent);
+      animation: scanDown 3s linear infinite;
+      z-index: 1;
+      pointer-events: none;
+    }
+    @keyframes scanDown {
+      0% { top: 0; }
+      100% { top: 100%; }
+    }
+
+    /* ===== CORNER DECORATIONS ===== */
+    .corner {
+      position: fixed;
+      width: 50px; height: 50px;
+      z-index: 10;
+      pointer-events: none;
+    }
+    .corner-tl { top: 20px; left: 20px; border-top: 2px solid rgba(255,215,0,0.6); border-left: 2px solid rgba(255,215,0,0.6); }
+    .corner-tr { top: 20px; right: 20px; border-top: 2px solid rgba(255,215,0,0.6); border-right: 2px solid rgba(255,215,0,0.6); }
+    .corner-bl { bottom: 20px; left: 20px; border-bottom: 2px solid rgba(255,215,0,0.6); border-left: 2px solid rgba(255,215,0,0.6); }
+    .corner-br { bottom: 20px; right: 20px; border-bottom: 2px solid rgba(255,215,0,0.6); border-right: 2px solid rgba(255,215,0,0.6); }
+
+    /* ===== TOP STATUS BAR ===== */
+    .top-bar {
+      position: fixed;
+      top: 28px; left: 50%;
+      transform: translateX(-50%);
+      z-index: 20;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 3px;
+      color: rgba(255,215,0,0.85);
+      text-transform: uppercase;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      white-space: nowrap;
+    }
+    .top-bar .cursor-blink {
+      display: inline-block;
+      width: 8px; height: 14px;
+      background: rgba(255,215,0,0.9);
+      animation: blink 1s step-end infinite;
+    }
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0; }
+    }
+
+    /* ===== BOTTOM STATUS BAR ===== */
+    .bottom-bar {
+      position: fixed;
+      bottom: 28px; left: 50%;
+      transform: translateX(-50%);
+      z-index: 20;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.65rem;
+      letter-spacing: 2px;
+      color: rgba(255,255,255,0.3);
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    /* ===== SIDE BARS ===== */
+    .side-bar-right {
+      position: fixed;
+      right: 22px;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 10;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .side-bar-right .bar-seg {
+      width: 4px;
+      border-radius: 2px;
+      background: rgba(255,255,255,0.08);
+      transition: all 0.3s ease;
+    }
+    .side-bar-right .bar-seg.active {
+      background: rgba(255,215,0,0.8);
+      box-shadow: 0 0 8px rgba(255,215,0,0.5);
+    }
+
+    /* ===== MAIN LOADER SCENE ===== */
+    .loader-scene {
+      position: relative;
+      z-index: 5;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0;
+    }
+
+    /* ===== RADAR ===== */
+    .radar-wrapper {
+      position: relative;
+      width: 320px;
+      height: 320px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* Outer rings */
+    .ring {
+      position: absolute;
+      border-radius: 50%;
+      border: 1px solid;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+    }
+    .ring-1 { width: 300px; height: 300px; border-color: rgba(255,255,255,0.06); }
+    .ring-2 { width: 230px; height: 230px; border-color: rgba(255,255,255,0.08); }
+    .ring-3 { width: 160px; height: 160px; border-color: rgba(255,255,255,0.10); animation: ringPulse 3s ease-in-out infinite; }
+    .ring-4 { width: 90px; height: 90px; border-color: rgba(255,215,0,0.15); animation: ringPulse 3s ease-in-out infinite 0.5s; }
+
+    @keyframes ringPulse {
+      0%, 100% { border-color: rgba(255,215,0,0.15); }
+      50% { border-color: rgba(255,215,0,0.35); }
+    }
+
+    /* Dotted outer ring */
+    .ring-dot {
+      position: absolute;
+      width: 300px; height: 300px;
+      border-radius: 50%;
+      border: 1px dashed rgba(255,255,255,0.06);
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      animation: rotateSlow 20s linear infinite;
+    }
+    @keyframes rotateSlow { to { transform: translate(-50%, -50%) rotate(360deg); } }
+
+    /* Cross lines */
+    .cross-line {
+      position: absolute;
+      background: rgba(255,255,255,0.04);
+      top: 50%; left: 50%;
+    }
+    .cross-h { width: 300px; height: 1px; transform: translate(-50%, -50%); }
+    .cross-v { width: 1px; height: 300px; transform: translate(-50%, -50%); }
+
+    /* Radar sweep */
+    .radar-canvas {
+      position: absolute;
+      width: 280px; height: 280px;
+      border-radius: 50%;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      overflow: hidden;
+    }
+
+    canvas#radarCanvas {
+      width: 100%; height: 100%;
+      border-radius: 50%;
+    }
+
+    /* Center emblem */
+    .radar-center {
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 10;
+      width: 50px; height: 50px;
+      border-radius: 50%;
+      background: #000;
+      border: 1.5px solid rgba(255,215,0,0.4);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 0 20px rgba(255,215,0,0.15), inset 0 0 15px rgba(0,0,0,0.8);
+    }
+    .radar-center svg {
+      width: 22px; height: 22px;
+      fill: none;
+      stroke: rgba(255,215,0,0.8);
+      stroke-width: 1.5;
+    }
+
+    /* Blip dots */
+    .blip {
+      position: absolute;
+      width: 5px; height: 5px;
+      background: rgba(255,215,0,0.9);
+      border-radius: 50%;
+      top: 50%; left: 50%;
+      box-shadow: 0 0 10px rgba(255,215,0,0.8);
+      opacity: 0;
+      animation: blipFade 3s ease-in-out infinite;
+    }
+    .blip-1 { transform: translate(45px, -60px); animation-delay: 0.5s; }
+    .blip-2 { transform: translate(-70px, 30px); animation-delay: 1.2s; }
+    .blip-3 { transform: translate(80px, 50px); animation-delay: 2s; }
+    .blip-4 { transform: translate(-30px, -80px); animation-delay: 0.8s; }
+    @keyframes blipFade {
+      0%, 100% { opacity: 0; transform: translate(var(--tx, 45px), var(--ty, -60px)) scale(0.5); }
+      30%, 70% { opacity: 1; transform: translate(var(--tx, 45px), var(--ty, -60px)) scale(1); }
+    }
+    .blip-1 { --tx: 45px; --ty: -60px; }
+    .blip-2 { --tx: -70px; --ty: 30px; }
+    .blip-3 { --tx: 80px; --ty: 50px; }
+    .blip-4 { --tx: -30px; --ty: -80px; }
+
+    /* ===== TERMINAL LOG ===== */
+    .terminal-log {
+      margin-top: 28px;
+      width: 420px;
+      max-width: 90vw;
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      align-items: center;
+    }
+    .log-line {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.65rem;
+      letter-spacing: 1.5px;
+      color: rgba(255,255,255,0.25);
+      text-transform: uppercase;
+      opacity: 0;
+      transform: translateY(4px);
+      transition: all 0.4s ease;
+      text-align: center;
+    }
+    .log-line.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .log-line.gold { color: rgba(255,215,0,0.7); }
+    .log-line.bright { color: rgba(255,255,255,0.5); }
+
+    /* ===== PROGRESS BAR ===== */
+    .progress-wrap {
+      margin-top: 20px;
+      width: 300px;
+      max-width: 80vw;
+    }
+    .progress-header {
+      display: flex;
+      justify-content: space-between;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.6rem;
+      letter-spacing: 2px;
+      color: rgba(255,255,255,0.3);
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+    .progress-track {
+      width: 100%;
+      height: 2px;
+      background: rgba(255,255,255,0.06);
+      border-radius: 1px;
+      overflow: hidden;
+      position: relative;
+    }
+    .progress-fill {
+      height: 100%;
+      width: 0%;
+      background: linear-gradient(90deg, rgba(255,215,0,0.4), rgba(255,215,0,0.9));
+      border-radius: 1px;
+      transition: width 0.1s linear;
+      position: relative;
+    }
+    .progress-fill::after {
+      content: '';
+      position: absolute;
+      right: 0; top: -3px;
+      width: 2px; height: 8px;
+      background: rgba(255,215,0,1);
+      box-shadow: 0 0 8px rgba(255,215,0,0.9);
+      border-radius: 1px;
+    }
+    .progress-pct {
+      text-align: right;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.6rem;
+      letter-spacing: 2px;
+      color: rgba(255,215,0,0.6);
+      margin-top: 6px;
+    }
+
+    /* ===== ENTER BUTTON ===== */
+    .enter-btn {
+      margin-top: 32px;
+      padding: 12px 40px;
+      background: transparent;
+      border: 1px solid rgba(255,215,0,0.4);
+      border-radius: 2px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: rgba(255,215,0,0.8);
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+      opacity: 0;
+      transform: translateY(10px);
+      transition: all 0.5s ease;
+      display: none;
+    }
+    .enter-btn.show {
+      display: block;
+      animation: showBtn 0.6s ease forwards;
+    }
+    @keyframes showBtn {
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .enter-btn::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(255,215,0,0.05);
+      transform: translateX(-100%);
+      transition: transform 0.4s ease;
+    }
+    .enter-btn:hover::before { transform: translateX(0); }
+    .enter-btn:hover {
+      border-color: rgba(255,215,0,0.8);
+      color: rgba(255,215,0,1);
+      box-shadow: 0 0 20px rgba(255,215,0,0.1);
+    }
+
+    /* ===== FLASH TRANSITION ===== */
+    .flash-overlay {
+      position: fixed;
+      inset: 0;
+      background: #fff;
+      z-index: 9999;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.4s ease;
+    }
+    .flash-overlay.active {
+      opacity: 1;
+      pointer-events: all;
+    }
+
+    /* ===== DATA STREAMS (side decoration) ===== */
+    .data-stream {
+      position: fixed;
+      top: 0;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.55rem;
+      color: rgba(255,255,255,0.04);
+      line-height: 1.4;
+      writing-mode: vertical-rl;
+      z-index: 1;
+      animation: streamDown 8s linear infinite;
+      user-select: none;
+      pointer-events: none;
+    }
+    .data-stream-left { left: 8px; animation-delay: 0s; }
+    .data-stream-left2 { left: 24px; animation-delay: 3s; }
+    .data-stream-right { right: 8px; animation-delay: 1.5s; }
+    .data-stream-right2 { right: 24px; animation-delay: 5s; }
+    @keyframes streamDown {
+      0% { transform: translateY(-100%); opacity: 0.3; }
+      50% { opacity: 1; }
+      100% { transform: translateY(100vh); opacity: 0; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Grid BG -->
+  <div class="grid-bg"></div>
+
+  <!-- Scanline -->
+  <div class="scanline"></div>
+
+  <!-- Corner brackets -->
+  <div class="corner corner-tl"></div>
+  <div class="corner corner-tr"></div>
+  <div class="corner corner-bl"></div>
+  <div class="corner corner-br"></div>
+
+  <!-- Top status -->
+  <div class="top-bar">
+    <span id="topBarText">YASH_GUPTA // INITIALIZING SECURE CONNECTION...</span>
+    <span class="cursor-blink"></span>
+  </div>
+
+  <!-- Bottom status -->
+  <div class="bottom-bar">SECURE PROTOCOL // PORTFOLIO V3.0.0 &nbsp;|&nbsp; DATA SCIENCE &amp; FULL STACK DEVELOPER</div>
+
+  <!-- Side progress bar -->
+  <div class="side-bar-right" id="sideBar"></div>
+
+  <!-- Data streams -->
+  <div class="data-stream data-stream-left">01001001 10110011 01011010 11001001 00101101 01110011</div>
+  <div class="data-stream data-stream-left2">PYTHON REACT NODE.JS ML EDA MONGODB EXPRESS</div>
+  <div class="data-stream data-stream-right">11010101 00110011 10101010 01100110 11011010</div>
+  <div class="data-stream data-stream-right2">TYPESCRIPT SCIKIT PANDAS NUMPY SEABORN VERCEL</div>
+
+  <!-- Flash overlay -->
+  <div class="flash-overlay" id="flashOverlay"></div>
+
+  <!-- Main scene -->
+  <div class="loader-scene">
+
+    <!-- Radar -->
+    <div class="radar-wrapper">
+      <!-- Static rings -->
+      <div class="ring ring-1"></div>
+      <div class="ring ring-2"></div>
+      <div class="ring ring-3"></div>
+      <div class="ring ring-4"></div>
+      <div class="ring-dot"></div>
+
+      <!-- Cross -->
+      <div class="cross-line cross-h"></div>
+      <div class="cross-line cross-v"></div>
+
+      <!-- Radar sweep canvas -->
+      <div class="radar-canvas">
+        <canvas id="radarCanvas" width="280" height="280"></canvas>
+      </div>
+
+      <!-- Blips -->
+      <div class="blip blip-1"></div>
+      <div class="blip blip-2"></div>
+      <div class="blip blip-3"></div>
+      <div class="blip blip-4"></div>
+
+      <!-- Center emblem -->
+      <div class="radar-center">
+        <!-- Code / developer icon -->
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <polyline points="16 18 22 12 16 6"></polyline>
+          <polyline points="8 6 2 12 8 18"></polyline>
+        </svg>
+      </div>
+    </div>
+
+    <!-- Terminal log -->
+    <div class="terminal-log" id="terminalLog">
+      <div class="log-line" id="log1">[ SYS ] Mounting kernel modules...</div>
+      <div class="log-line" id="log2">[ NET ] Establishing encrypted channel...</div>
+      <div class="log-line" id="log3">[ DATA ] Loading portfolio assets...</div>
+      <div class="log-line gold" id="log4">[ AUTH ] Identity verified — Yash Gupta</div>
+      <div class="log-line bright" id="log5">[ READY ] System online. All modules loaded.</div>
+    </div>
+
+    <!-- Progress bar -->
+    <div class="progress-wrap">
+      <div class="progress-header">
+        <span>Loading</span>
+        <span>System</span>
+      </div>
+      <div class="progress-track">
+        <div class="progress-fill" id="progressFill"></div>
+      </div>
+      <div class="progress-pct" id="progressPct">0%</div>
+    </div>
+
+    <!-- Enter button -->
+    <button class="enter-btn" id="enterBtn" onclick="enterPortfolio()">
+      [ ENTER PORTFOLIO ]
+    </button>
+
+  </div>
+
+  <script>
+    'use strict';
+
+    /* ===== RADAR SWEEP CANVAS ===== */
+    const canvas = document.getElementById('radarCanvas');
+    const ctx = canvas.getContext('2d');
+    let angle = 0;
+
+    function drawRadar() {
+      const W = canvas.width;
+      const H = canvas.height;
+      const cx = W / 2;
+      const cy = H / 2;
+      const r = W / 2;
+
+      ctx.clearRect(0, 0, W, H);
+
+      // Sweep gradient (the sweeping "fan")
+      const sweepLength = Math.PI * 0.6;
+      const gradient = ctx.createConicalGradient
+        ? null // fallback below
+        : null;
+
+      // Draw sweep using multiple arcs
+      for (let i = 0; i < 40; i++) {
+        const a = angle - (i * sweepLength / 40);
+        const alpha = (1 - i / 40) * 0.35;
+        ctx.beginPath();
+        ctx.moveTo(cx, cy);
+        ctx.arc(cx, cy, r, a - sweepLength / 40, a);
+        ctx.closePath();
+        ctx.fillStyle = `rgba(255, 215, 0, ${alpha})`;
+        ctx.fill();
+      }
+
+      // Sweep arm
+      ctx.beginPath();
+      ctx.moveTo(cx, cy);
+      ctx.lineTo(cx + Math.cos(angle) * r, cy + Math.sin(angle) * r);
+      ctx.strokeStyle = 'rgba(255, 215, 0, 0.7)';
+      ctx.lineWidth = 1.5;
+      ctx.stroke();
+
+      angle += 0.025;
+      requestAnimationFrame(drawRadar);
+    }
+
+    drawRadar();
+
+    /* ===== SIDE PROGRESS BARS ===== */
+    const sideBar = document.getElementById('sideBar');
+    const totalBars = 16;
+    let activeBars = 0;
+
+    for (let i = 0; i < totalBars; i++) {
+      const seg = document.createElement('div');
+      seg.className = 'bar-seg';
+      seg.style.height = '14px';
+      sideBar.appendChild(seg);
+    }
+
+    /* ===== PROGRESS ANIMATION ===== */
+    const progressFill = document.getElementById('progressFill');
+    const progressPct = document.getElementById('progressPct');
+    const enterBtn = document.getElementById('enterBtn');
+
+    const logLines = [
+      { id: 'log1', delay: 400, pctStart: 0, pctEnd: 18 },
+      { id: 'log2', delay: 1200, pctStart: 18, pctEnd: 42 },
+      { id: 'log3', delay: 2200, pctStart: 42, pctEnd: 68 },
+      { id: 'log4', delay: 3200, pctStart: 68, pctEnd: 88 },
+      { id: 'log5', delay: 4000, pctStart: 88, pctEnd: 100 },
+    ];
+
+    let currentPct = 0;
+
+    function animatePct(from, to, duration, onDone) {
+      const start = performance.now();
+      function step(now) {
+        const t = Math.min((now - start) / duration, 1);
+        const eased = 1 - Math.pow(1 - t, 2);
+        const val = Math.round(from + (to - from) * eased);
+        currentPct = val;
+        progressFill.style.width = val + '%';
+        progressPct.textContent = val + '%';
+
+        // Update side bars
+        const barsToActivate = Math.floor((val / 100) * totalBars);
+        document.querySelectorAll('.bar-seg').forEach((seg, i) => {
+          seg.classList.toggle('active', i < barsToActivate);
+        });
+
+        if (t < 1) requestAnimationFrame(step);
+        else if (onDone) onDone();
+      }
+      requestAnimationFrame(step);
+    }
+
+    function runSequence() {
+      let i = 0;
+
+      function next() {
+        if (i >= logLines.length) return;
+        const item = logLines[i];
+        i++;
+
+        setTimeout(() => {
+          // Show log line
+          const el = document.getElementById(item.id);
+          if (el) el.classList.add('visible');
+
+          // Animate progress
+          animatePct(item.pctStart, item.pctEnd, 700, () => {
+            if (i === logLines.length) {
+              // All done — show enter button
+              setTimeout(() => {
+                enterBtn.classList.add('show');
+              }, 400);
+            } else {
+              next();
+            }
+          });
+        }, item.delay);
+      }
+
+      next();
+    }
+
+    runSequence();
+
+    /* ===== ENTER PORTFOLIO ===== */
+    function enterPortfolio() {
+      const flash = document.getElementById('flashOverlay');
+      flash.style.background = '#000';
+      flash.style.transition = 'opacity 0.6s ease';
+      flash.classList.add('active');
+      setTimeout(() => {
+        window.location.href = 'index.html';
+      }, 650);
+    }
+
+    // Auto-enter after 7 seconds if user doesn't click
+    setTimeout(() => {
+      if (currentPct >= 100) enterPortfolio();
+    }, 7500);
+  </script>
+</body>
+</html>

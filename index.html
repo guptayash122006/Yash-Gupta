@@ -1,0 +1,1019 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Yash Gupta - Data Science & Full Stack Developer Portfolio. B.Tech CSE Student at Arya College of Engineering, Jaipur. Python, React, ML, Node.js.">
+  <meta name="keywords" content="Yash Gupta, data science, full stack developer, portfolio, React, Node.js, Python, ML, internship, web development, Jaipur">
+  <meta name="author" content="Yash Gupta">
+  <meta name="robots" content="index,follow">
+  <meta name="theme-color" content="#050505">
+  <meta property="og:title" content="Yash Gupta | Data Science & Full Stack Developer">
+  <meta property="og:description" content="Technical portfolio of Yash Gupta — Data Science fresher with hands-on Python EDA, ML, and Full Stack competency in React & Node.js.">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Yash Gupta Portfolio">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Yash Gupta | Data Science & Full Stack Developer">
+  <meta name="twitter:description" content="Data Science fresher | Full Stack competency in React & Node.js | Seeking remote fresher internship.">
+  <title>Yash Gupta | Data Science & Full Stack Developer</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+  <!-- PRELOADER STYLES (isolated, yg- namespaced) -->
+  <link rel="stylesheet" href="preloader.css">
+</head>
+
+<body>
+
+  <!-- ============================================================
+       PRE-LOADER OVERLAY
+       Phase 1: ScannerIntro  (radar + status messages)
+       Phase 2: TerminalLoader (commands + progress bar)
+       Dismissed via JS after ~4-5s, shown only once per session.
+       ============================================================ -->
+  <div id="yg-preloader" role="status" aria-label="Loading portfolio..." aria-live="polite">
+
+    <!-- ── SCANNER BACKGROUND DECORATION ── -->
+    <div class="yg-grid-bg" aria-hidden="true"></div>
+    <div class="yg-scanline" aria-hidden="true"></div>
+    <div class="yg-corner yg-corner-tl" aria-hidden="true"></div>
+    <div class="yg-corner yg-corner-tr" aria-hidden="true"></div>
+    <div class="yg-corner yg-corner-bl" aria-hidden="true"></div>
+    <div class="yg-corner yg-corner-br" aria-hidden="true"></div>
+    <div class="yg-data-stream yg-ds-l1" aria-hidden="true">01001001 10110011 01011010 11001001 00101101</div>
+    <div class="yg-data-stream yg-ds-l2" aria-hidden="true">PYTHON REACT NODE.JS ML EDA MONGODB EXPRESS</div>
+    <div class="yg-data-stream yg-ds-r1" aria-hidden="true">11010101 00110011 10101010 01100110 11011010</div>
+    <div class="yg-data-stream yg-ds-r2" aria-hidden="true">TYPESCRIPT SCIKIT PANDAS NUMPY SEABORN VERCEL</div>
+
+    <!-- Top + Bottom status bars -->
+    <div class="yg-top-bar" aria-hidden="true">
+      <span>YG_PORTFOLIO // SECURE BOOT</span>
+      <span class="yg-blink-cursor"></span>
+    </div>
+    <div class="yg-bottom-bar" aria-hidden="true">SECURE PROTOCOL // DATA SCIENCE &amp; FULL STACK DEVELOPER</div>
+
+    <!-- ── PHASE 1 — SCANNER ── -->
+    <div id="yg-scanner">
+
+      <!-- Radar Scene -->
+      <div class="yg-radar-scene">
+        <!-- Static rings -->
+        <div class="yg-ring yg-ring-1"></div>
+        <div class="yg-ring yg-ring-2"></div>
+        <div class="yg-ring yg-ring-3"></div>
+        <div class="yg-ring yg-ring-4"></div>
+        <div class="yg-ring-dot"></div>
+        <!-- Crosshairs -->
+        <div class="yg-cross-h"></div>
+        <div class="yg-cross-v"></div>
+        <!-- Radar sweep canvas -->
+        <canvas id="yg-radar-canvas" aria-hidden="true"></canvas>
+        <!-- Blip dots -->
+        <div class="yg-blip yg-blip-1"></div>
+        <div class="yg-blip yg-blip-2"></div>
+        <div class="yg-blip yg-blip-3"></div>
+        <div class="yg-blip yg-blip-4"></div>
+        <!-- Center emblem -->
+        <div class="yg-radar-center">
+          <svg class="yg-shield-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+          </svg>
+        </div>
+      </div>
+
+      <!-- Status messages -->
+      <div class="yg-status-wrap">
+        <div class="yg-status-text" id="yg-scanner-status" aria-live="polite"></div>
+      </div>
+
+    </div><!-- /#yg-scanner -->
+
+    <!-- ── PHASE 2 — TERMINAL LOADER ── -->
+    <div id="yg-terminal">
+
+      <!-- Terminal window -->
+      <div class="yg-term-window">
+
+        <!-- Title bar -->
+        <div class="yg-term-titlebar" aria-hidden="true">
+          <span class="yg-term-dot yg-term-dot-red"></span>
+          <span class="yg-term-dot yg-term-dot-yellow"></span>
+          <span class="yg-term-dot yg-term-dot-green"></span>
+          <span class="yg-term-title">bash &mdash; yash-portfolio</span>
+        </div>
+
+        <!-- Command lines -->
+        <div class="yg-term-body">
+          <div class="yg-term-line" id="yg-cmd-1">
+            <span class="yg-term-prompt">&gt;</span>
+            <span class="yg-term-cmd">loading profile</span>
+          </div>
+          <div class="yg-term-line" id="yg-cmd-2">
+            <span class="yg-term-prompt">&gt;</span>
+            <span class="yg-term-cmd">importing projects</span>
+          </div>
+          <div class="yg-term-line" id="yg-cmd-3">
+            <span class="yg-term-prompt">&gt;</span>
+            <span class="yg-term-cmd">loading skill matrix</span>
+          </div>
+          <div class="yg-term-line" id="yg-cmd-4">
+            <span class="yg-term-prompt">&gt;</span>
+            <span class="yg-term-cmd">connecting github</span>
+          </div>
+          <div class="yg-term-line" id="yg-cmd-5">
+            <span class="yg-term-prompt">&gt;</span>
+            <span class="yg-term-cmd">build status: success</span>
+          </div>
+          <!-- Active cursor -->
+          <div class="yg-term-cursor-line" id="yg-term-cursor-line" aria-hidden="true">
+            <span class="yg-term-prompt">&gt;</span>
+            <span class="yg-term-cursor"></span>
+          </div>
+        </div>
+
+        <!-- Progress bar -->
+        <div class="yg-progress-section">
+          <div class="yg-prog-header">
+            <span id="yg-prog-label">Loading</span>
+            <span>System</span>
+          </div>
+          <div class="yg-prog-track" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+            <div class="yg-prog-fill" id="yg-prog-fill"></div>
+          </div>
+          <div class="yg-prog-pct" id="yg-prog-pct">0%</div>
+        </div>
+
+        <!-- Access Granted row -->
+        <div class="yg-access-row" id="yg-access-row">
+          <span class="yg-access-dot"></span>
+          <span>Access Granted &mdash; Launching Portfolio</span>
+        </div>
+
+      </div><!-- /.yg-term-window -->
+    </div><!-- /#yg-terminal -->
+
+  </div><!-- /#yg-preloader -->
+
+  <!-- PARTICLES BACKGROUND -->
+  <canvas id="particleCanvas"></canvas>
+
+  <!-- CURSOR GLOW -->
+  <div class="cursor-glow" id="cursorGlow"></div>
+
+  <!-- SKIP LINK -->
+  <a class="skip-link" href="#mainContent">Skip to main content</a>
+
+  <!-- STICKY NAVBAR -->
+  <header class="navbar" id="navbar">
+    <div class="navbar-container">
+      <div class="navbar-brand">
+        <div class="brand-logo">
+          <span>YG</span>
+        </div>
+        <span class="brand-text">Yash Gupta</span>
+      </div>
+
+      <nav class="nav-links" id="navLinks" aria-label="Primary navigation">
+        <a href="#hero" class="nav-link active" data-section="hero">Home</a>
+        <a href="#about" class="nav-link" data-section="about">About</a>
+        <a href="#skills" class="nav-link" data-section="skills">Skills</a>
+        <a href="#experience" class="nav-link" data-section="experience">Experience</a>
+        <a href="#projects" class="nav-link" data-section="projects">Projects</a>
+        <a href="#certifications" class="nav-link" data-section="certifications">Certifications</a>
+        <a href="#contact" class="nav-link" data-section="contact">Contact</a>
+      </nav>
+
+      <div class="navbar-actions">
+        <!-- Day/Night Toggle -->
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark/light mode" title="Toggle Theme">
+          <div class="toggle-track">
+            <i class="fas fa-moon moon-icon"></i>
+            <i class="fas fa-sun sun-icon"></i>
+            <div class="toggle-thumb"></div>
+          </div>
+        </button>
+
+        <a href="#" target="_blank" rel="noopener noreferrer" class="resume-btn" id="resumeBtn">
+          <i class="fas fa-file-pdf"></i> <span>Resume</span>
+        </a>
+      </div>
+
+      <button class="mobile-menu-btn" id="mobileMenuBtn" type="button" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="navLinks">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main id="mainContent">
+
+    <!-- ===== HERO SECTION ===== -->
+    <section id="hero" class="hero">
+      <div class="hero-container">
+        <div class="hero-content" data-aos="fade-right">
+          <div class="hero-badge">
+            <span class="badge-dot"></span>
+            Open to Internships
+          </div>
+
+          <h1 class="hero-title">
+            Hi, I'm <span class="gradient-text typewriter" id="nameText">Yash Gupta</span>
+          </h1>
+
+          <div class="hero-role">
+            <span class="role-prefix">I build</span>
+            <span class="role-rotator" id="roleRotator">
+              <span class="role-item active">ML & Data Science Solutions</span>
+              <span class="role-item">Full Stack Web Apps</span>
+              <span class="role-item">React & Node.js Projects</span>
+              <span class="role-item">Data Visualizations</span>
+            </span>
+          </div>
+
+          <p class="hero-description">
+            Data Science fresher with hands-on Python EDA, statistical analysis, and ML fundamentals. 
+            Full Stack competency in React & Node.js. Delivered 2 data projects and a production-deployed 
+            frontend clone. Seeking a <strong>remote fresher internship</strong> in Data Science or Full Stack Development.
+          </p>
+
+          <div class="hero-ctas">
+            <a href="#projects" class="btn btn-primary">
+              <i class="fas fa-rocket"></i> View My Work
+            </a>
+            <a href="#contact" class="btn btn-secondary">
+              <i class="fas fa-paper-plane"></i> Hire Me
+            </a>
+          </div>
+
+          <div class="hero-socials">
+            <a href="https://www.linkedin.com/in/yash12722/" target="_blank" rel="noopener noreferrer" class="social-link" title="LinkedIn" aria-label="LinkedIn">
+              <i class="fab fa-linkedin"></i>
+            </a>
+            <a href="https://github.com/guptayash122006" target="_blank" rel="noopener noreferrer" class="social-link" title="GitHub" aria-label="GitHub">
+              <i class="fab fa-github"></i>
+            </a>
+            <a href="mailto:yash12722@gmail.com" class="social-link" title="Email" aria-label="Email">
+              <i class="fas fa-envelope"></i>
+            </a>
+            <a href="tel:+916377323622" class="social-link" title="Phone" aria-label="Phone">
+              <i class="fas fa-phone"></i>
+            </a>
+          </div>
+        </div>
+
+        <div class="hero-visual" data-aos="fade-left">
+          <div class="hero-card-3d">
+            <div class="profile-ring outer-ring"></div>
+            <div class="profile-ring middle-ring"></div>
+            <div class="profile-avatar">
+              <img
+                src="profile.jpg"
+                alt="Yash Gupta"
+                class="avatar-photo"
+              >
+            </div>
+            <div class="floating-badge badge-1">
+              <i class="fab fa-python"></i> Python
+            </div>
+            <div class="floating-badge badge-2">
+              <i class="fas fa-brain"></i> ML
+            </div>
+            <div class="floating-badge badge-3">
+              <i class="fab fa-react"></i> React
+            </div>
+            <div class="floating-badge badge-4">
+              <i class="fas fa-chart-bar"></i> EDA
+            </div>
+            <div class="floating-badge badge-5">
+              <i class="fab fa-node-js"></i> Node.js
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="scroll-indicator">
+        <div class="scroll-mouse">
+          <div class="scroll-wheel"></div>
+        </div>
+        <span>Scroll to explore</span>
+      </div>
+    </section>
+
+    <!-- ===== STATS SECTION ===== -->
+    <section class="stats-section">
+      <div class="section-container">
+        <div class="stats-grid">
+          <div class="stat-card" data-aos="fade-up" data-aos-delay="0">
+            <div class="stat-icon"><i class="fas fa-code"></i></div>
+            <h3 class="stat-number" data-count="6">0</h3>
+            <p>Featured Projects</p>
+          </div>
+          <div class="stat-card" data-aos="fade-up" data-aos-delay="100">
+            <div class="stat-icon"><i class="fas fa-certificate"></i></div>
+            <h3 class="stat-number" data-count="8">0</h3>
+            <p>Certifications Earned</p>
+          </div>
+          <div class="stat-card" data-aos="fade-up" data-aos-delay="200">
+            <div class="stat-icon"><i class="fas fa-trophy"></i></div>
+            <h3 class="stat-number" data-count="4">0</h3>
+            <p>Hackathon Participations</p>
+          </div>
+          <div class="stat-card" data-aos="fade-up" data-aos-delay="300">
+            <div class="stat-icon"><i class="fas fa-graduation-cap"></i></div>
+            <h3 class="stat-number" data-count="8" data-suffix=".02">0</h3>
+            <p>CGPA at B.Tech CSE</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== ABOUT SECTION ===== -->
+    <section id="about" class="about-section">
+      <div class="section-container">
+        <div class="section-header" data-aos="fade-up">
+          <span class="section-tag">Who I Am</span>
+          <h2 class="section-title">About Me</h2>
+          <p class="section-subtitle">A passionate developer bridging Data Science and Full Stack development</p>
+        </div>
+
+        <div class="about-wrapper">
+          <div class="about-content" data-aos="fade-right">
+            <p class="about-intro">
+              I'm <strong>Yash Gupta</strong>, a B.Tech CSE student at Arya College of Engineering, Jaipur (2024–2028), 
+              passionate about turning data into insights and ideas into production-ready web applications.
+            </p>
+            <p class="about-body">
+              With a strong foundation in <strong>Python EDA, statistical analysis, and ML fundamentals</strong>, 
+              combined with full stack expertise in <strong>React, Node.js, and REST APIs</strong>, I build solutions 
+              that are both analytically sound and visually compelling. I've completed a 45-day Data Science & ML 
+              internship at Grass Solution, Jaipur, and delivered multiple real-world projects.
+            </p>
+
+            <div class="about-facts-grid">
+              <div class="fact-item">
+                <i class="fas fa-graduation-cap"></i>
+                <div>
+                  <h4>Education</h4>
+                  <p>B.Tech CSE · Arya College<br>CGPA: 8.02 / 10 · 2024–2028</p>
+                </div>
+              </div>
+              <div class="fact-item">
+                <i class="fas fa-map-marker-alt"></i>
+                <div>
+                  <h4>Location</h4>
+                  <p>Jaipur, Rajasthan</p>
+                </div>
+              </div>
+              <div class="fact-item">
+                <i class="fas fa-briefcase"></i>
+                <div>
+                  <h4>Status</h4>
+                  <p>Seeking Remote Fresher Internship</p>
+                </div>
+              </div>
+              <div class="fact-item">
+                <i class="fas fa-phone"></i>
+                <div>
+                  <h4>Phone</h4>
+                  <p>+91 6377323622</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="about-card-side" data-aos="fade-left">
+            <div class="quick-info-card">
+              <div class="quick-info-header">
+                <i class="fas fa-user-circle"></i>
+                <h3>Quick Info</h3>
+              </div>
+              <ul class="quick-list">
+                <li><span class="ql-icon">🎯</span><span><strong>Goal:</strong> Data Science & Full Stack Dev</span></li>
+                <li><span class="ql-icon">💼</span><span><strong>Open to:</strong> Remote Fresher Internship</span></li>
+                <li><span class="ql-icon">📍</span><span><strong>Location:</strong> Jaipur, Rajasthan</span></li>
+                <li><span class="ql-icon">🔬</span><span><strong>Focus:</strong> Python, ML, React, Node.js</span></li>
+                <li><span class="ql-icon">📚</span><span><strong>Learning:</strong> TypeScript, Next.js, DSA</span></li>
+                <li><span class="ql-icon">✉️</span><span><strong>Email:</strong> yash12722@gmail.com</span></li>
+              </ul>
+              <a href="#contact" class="btn btn-primary" style="width:100%; margin-top: 1rem; justify-content:center;">
+                <i class="fas fa-envelope"></i> Contact Me
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== SKILLS SECTION ===== -->
+    <section id="skills" class="skills-section">
+      <div class="section-container">
+        <div class="section-header" data-aos="fade-up">
+          <span class="section-tag">My Toolkit</span>
+          <h2 class="section-title">Skills & Technologies</h2>
+          <p class="section-subtitle">A diverse skill set spanning Data Science, AI, and Full Stack development</p>
+        </div>
+
+        <div class="skills-grid">
+          <!-- Data Science & ML -->
+          <div class="skill-category-card" data-aos="fade-up" data-aos-delay="0">
+            <div class="skill-cat-header">
+              <div class="skill-cat-icon ds-icon"><i class="fas fa-brain"></i></div>
+              <h3>Data Science & ML</h3>
+            </div>
+            <div class="skill-chips">
+              <span class="skill-chip">Python</span>
+              <span class="skill-chip">Pandas</span>
+              <span class="skill-chip">NumPy</span>
+              <span class="skill-chip">Matplotlib</span>
+              <span class="skill-chip">Seaborn</span>
+              <span class="skill-chip">scikit-learn</span>
+              <span class="skill-chip">EDA</span>
+              <span class="skill-chip">Data Wrangling</span>
+              <span class="skill-chip">Feature Engineering</span>
+              <span class="skill-chip">Statistics & Probability</span>
+            </div>
+          </div>
+
+          <!-- Frontend & Backend -->
+          <div class="skill-category-card" data-aos="fade-up" data-aos-delay="100">
+            <div class="skill-cat-header">
+              <div class="skill-cat-icon fe-icon"><i class="fas fa-laptop-code"></i></div>
+              <h3>Frontend & Backend</h3>
+            </div>
+            <div class="skill-chips">
+              <span class="skill-chip">React.js</span>
+              <span class="skill-chip">React Hooks</span>
+              <span class="skill-chip">Tailwind CSS</span>
+              <span class="skill-chip">Vite</span>
+              <span class="skill-chip">Node.js</span>
+              <span class="skill-chip">Express.js</span>
+              <span class="skill-chip">REST API</span>
+              <span class="skill-chip">JWT Auth</span>
+              <span class="skill-chip">HTML5</span>
+              <span class="skill-chip">CSS3</span>
+            </div>
+          </div>
+
+          <!-- Database & Tools -->
+          <div class="skill-category-card" data-aos="fade-up" data-aos-delay="200">
+            <div class="skill-cat-header">
+              <div class="skill-cat-icon db-icon"><i class="fas fa-database"></i></div>
+              <h3>Database & Tools</h3>
+            </div>
+            <div class="skill-chips">
+              <span class="skill-chip">MongoDB</span>
+              <span class="skill-chip">Mongoose</span>
+              <span class="skill-chip">SQL</span>
+              <span class="skill-chip">Power BI</span>
+              <span class="skill-chip">Git & GitHub</span>
+              <span class="skill-chip">Jupyter Notebook</span>
+              <span class="skill-chip">VS Code</span>
+              <span class="skill-chip">Vercel</span>
+              <span class="skill-chip">Postman</span>
+            </div>
+          </div>
+
+          <!-- Languages -->
+          <div class="skill-category-card" data-aos="fade-up" data-aos-delay="300">
+            <div class="skill-cat-header">
+              <div class="skill-cat-icon lang-icon"><i class="fas fa-code"></i></div>
+              <h3>Languages</h3>
+            </div>
+            <div class="skill-chips">
+              <span class="skill-chip">Python</span>
+              <span class="skill-chip">JavaScript (ES6+)</span>
+              <span class="skill-chip">C++</span>
+              <span class="skill-chip">Java</span>
+              <span class="skill-chip">TypeScript</span>
+              <span class="skill-chip">Next.js</span>
+              <span class="skill-chip">DSA — Arrays, Strings, Recursion</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== EXPERIENCE SECTION ===== -->
+    <section id="experience" class="experience-section">
+      <div class="section-container">
+        <div class="section-header" data-aos="fade-up">
+          <span class="section-tag">My Journey</span>
+          <h2 class="section-title">Experience & Training</h2>
+          <p class="section-subtitle">Real-world exposure shaping my technical capabilities</p>
+        </div>
+
+        <div class="timeline">
+          <!-- DS & ML Internship -->
+          <div class="timeline-item" data-aos="fade-right">
+            <div class="timeline-connector">
+              <div class="timeline-dot current"></div>
+              <div class="timeline-line"></div>
+            </div>
+            <div class="timeline-card featured">
+              <div class="tl-badge">⭐ Internship</div>
+              <div class="timeline-header">
+                <div>
+                  <h3>Data Science & ML Intern</h3>
+                  <p class="timeline-org"><i class="fas fa-building"></i> Grass Solution — Jaipur</p>
+                </div>
+                <span class="timeline-date">2026 · 45 Days</span>
+              </div>
+              <ul class="timeline-points">
+                <li>Executed full DS pipeline — data cleaning, EDA, feature engineering, and supervised ML model building on 3 real-world datasets</li>
+                <li>Built a classification model achieving <strong>~82% validation accuracy</strong></li>
+                <li>Applied Python, Pandas, NumPy, Matplotlib, and scikit-learn throughout the project lifecycle</li>
+              </ul>
+              <div class="timeline-tags">
+                <span>Python</span><span>Pandas</span><span>NumPy</span><span>Matplotlib</span><span>scikit-learn</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Hackathons -->
+          <div class="timeline-item" data-aos="fade-right" data-aos-delay="100">
+            <div class="timeline-connector">
+              <div class="timeline-dot"></div>
+              <div class="timeline-line"></div>
+            </div>
+            <div class="timeline-card">
+              <div class="tl-badge">🏆 Hackathons</div>
+              <div class="timeline-header">
+                <div>
+                  <h3>Hackathon Participant — Top 5</h3>
+                  <p class="timeline-org"><i class="fas fa-university"></i> Multiple Institutions</p>
+                </div>
+                <span class="timeline-date">2024–2025</span>
+              </div>
+              <ul class="timeline-points">
+                <li><strong>Top 5 — AADHAR XIV Secure</strong> (Poornima COE)</li>
+                <li>Hack Nexus (Arya COE)</li>
+                <li>Bhartiya Antariksh Hackathon 2025 · TRISKAIDEKA · Innovastra</li>
+              </ul>
+              <div class="timeline-tags">
+                <span>Problem Solving</span><span>Innovation</span><span>Teamwork</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- NPTEL Certifications -->
+          <div class="timeline-item" data-aos="fade-right" data-aos-delay="200">
+            <div class="timeline-connector">
+              <div class="timeline-dot"></div>
+              <div class="timeline-line"></div>
+            </div>
+            <div class="timeline-card">
+              <div class="tl-badge">📜 IIT Certifications</div>
+              <div class="timeline-header">
+                <div>
+                  <h3>NPTEL Certification Courses</h3>
+                  <p class="timeline-org"><i class="fas fa-university"></i> IIT Kharagpur & IIT Roorkee</p>
+                </div>
+                <span class="timeline-date">2025–2026</span>
+              </div>
+              <ul class="timeline-points">
+                <li>NPTEL – DBMS | IIT Kharagpur (2026)</li>
+                <li>NPTEL – OOP C++ | IIT Roorkee (2025)</li>
+                <li>NPTEL – Modern C++ | IIT Kharagpur (2025)</li>
+              </ul>
+              <div class="timeline-tags">
+                <span>DBMS</span><span>C++</span><span>OOP</span><span>IIT</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== PROJECTS SECTION ===== -->
+    <section id="projects" class="projects-section">
+      <div class="section-container">
+        <div class="section-header" data-aos="fade-up">
+          <span class="section-tag">My Work</span>
+          <h2 class="section-title">Featured Projects</h2>
+          <p class="section-subtitle">Production-grade solutions built with modern technologies</p>
+        </div>
+
+        <div class="projects-filter" data-aos="fade-up">
+          <button class="filter-btn active" data-filter="all">All</button>
+          <button class="filter-btn" data-filter="data-science">Data Science</button>
+          <button class="filter-btn" data-filter="fullstack">Full Stack</button>
+          <button class="filter-btn" data-filter="frontend">Frontend</button>
+        </div>
+
+        <div class="projects-grid">
+
+          <!-- Project 1: Student Performance Analyzer -->
+          <div class="project-card" data-category="data-science" data-aos="fade-up" data-aos-delay="0">
+            <div class="project-card-inner">
+              <div class="project-top">
+                <div class="project-badges">
+                  <span class="project-badge badge-ds">Data Science</span>
+                  <span class="project-badge badge-featured">⭐ Featured</span>
+                </div>
+                <div class="project-links-top">
+                  <a href="https://github.com/guptayash122006" target="_blank" rel="noopener noreferrer" title="GitHub" aria-label="View on GitHub">
+                    <i class="fab fa-github"></i>
+                  </a>
+                </div>
+              </div>
+              <h3 class="project-title">Student Performance Analyzer</h3>
+              <p class="project-description">
+                Analysed a 6,500+ row Kaggle dataset; identified attendance and study hours as top performance 
+                predictors (Pearson r = 0.76). Built Seaborn dashboards visualising grade distribution across 8 subjects.
+                Engineered 4 derived features and applied correlation matrix analysis.
+              </p>
+              <div class="project-highlights">
+                <span><i class="fas fa-database"></i> 6,500+ rows analysed</span>
+                <span><i class="fas fa-chart-line"></i> Pearson r = 0.76</span>
+                <span><i class="fas fa-layer-group"></i> 8 subjects visualised</span>
+              </div>
+              <div class="tech-stack-row">
+                <span>Python</span><span>Pandas</span><span>NumPy</span><span>Matplotlib</span><span>Seaborn</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 2: Hotstar Clone -->
+          <div class="project-card" data-category="frontend" data-aos="fade-up" data-aos-delay="100">
+            <div class="project-card-inner">
+              <div class="project-top">
+                <div class="project-badges">
+                  <span class="project-badge badge-fe">Frontend</span>
+                  <span class="project-badge badge-live">🔴 Live</span>
+                </div>
+                <div class="project-links-top">
+                  <a href="https://github.com/guptayash122006" target="_blank" rel="noopener noreferrer" title="GitHub" aria-label="View on GitHub">
+                    <i class="fab fa-github"></i>
+                  </a>
+                  <a href="https://yash-portfolio-khaki.vercel.app/" target="_blank" rel="noopener noreferrer" title="Live Demo" aria-label="Live Demo">
+                    <i class="fas fa-external-link-alt"></i>
+                  </a>
+                </div>
+              </div>
+              <h3 class="project-title">Hotstar Clone — Streaming UI</h3>
+              <p class="project-description">
+                Engineered a streaming platform UI integrating TMDB REST API across 12 categorised carousels. 
+                Implemented lazy loading and code-splitting, reducing load time by ~40%. Deployed on Vercel.
+              </p>
+              <div class="project-highlights">
+                <span><i class="fas fa-film"></i> 12 API carousels</span>
+                <span><i class="fas fa-tachometer-alt"></i> ~40% faster load</span>
+                <span><i class="fas fa-cloud"></i> Vercel deployed</span>
+              </div>
+              <div class="tech-stack-row">
+                <span>React.js</span><span>JavaScript</span><span>Tailwind CSS</span><span>TMDB API</span><span>Vite</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 3: Life-Time Trading App -->
+          <div class="project-card" data-category="fullstack" data-aos="fade-up" data-aos-delay="200">
+            <div class="project-card-inner">
+              <div class="project-top">
+                <div class="project-badges">
+                  <span class="project-badge badge-fs">Full Stack</span>
+                </div>
+                <div class="project-links-top">
+                  <a href="https://github.com/guptayash122006/Life-Time-Trading-App" target="_blank" rel="noopener noreferrer" title="GitHub" aria-label="View on GitHub">
+                    <i class="fab fa-github"></i>
+                  </a>
+                </div>
+              </div>
+              <h3 class="project-title">Life-Time Trading App</h3>
+              <p class="project-description">
+                Full-stack trading platform with real-time market data integration, JWT authentication, 
+                and responsive trade workflows built with React and Node.js/Express backend.
+              </p>
+              <div class="project-highlights">
+                <span><i class="fas fa-shield-alt"></i> JWT Auth</span>
+                <span><i class="fas fa-sync-alt"></i> Real-time data</span>
+                <span><i class="fas fa-mobile-alt"></i> Responsive UI</span>
+              </div>
+              <div class="tech-stack-row">
+                <span>React</span><span>Node.js</span><span>Express</span><span>JavaScript</span><span>MongoDB</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 4: Student Hub -->
+          <div class="project-card" data-category="frontend" data-aos="fade-up" data-aos-delay="0">
+            <div class="project-card-inner">
+              <div class="project-top">
+                <div class="project-badges">
+                  <span class="project-badge badge-fe">Frontend</span>
+                </div>
+                <div class="project-links-top">
+                  <a href="https://github.com/guptayash122006/student-hub" target="_blank" rel="noopener noreferrer" title="GitHub" aria-label="View on GitHub">
+                    <i class="fab fa-github"></i>
+                  </a>
+                </div>
+              </div>
+              <h3 class="project-title">Student Hub</h3>
+              <p class="project-description">
+                Centralized student dashboard for managing resources, announcements, and collaborative 
+                learning workflows. Built with TypeScript and React.
+              </p>
+              <div class="project-highlights">
+                <span><i class="fas fa-users"></i> Multi-user dashboard</span>
+                <span><i class="fas fa-bolt"></i> TypeScript powered</span>
+              </div>
+              <div class="tech-stack-row">
+                <span>TypeScript</span><span>React</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 5: Safe Route Finder -->
+          <div class="project-card" data-category="frontend" data-aos="fade-up" data-aos-delay="100">
+            <div class="project-card-inner">
+              <div class="project-top">
+                <div class="project-badges">
+                  <span class="project-badge badge-fe">Frontend</span>
+                </div>
+                <div class="project-links-top">
+                  <a href="https://github.com/guptayash122006/safe-route-finder" target="_blank" rel="noopener noreferrer" title="GitHub" aria-label="View on GitHub">
+                    <i class="fab fa-github"></i>
+                  </a>
+                </div>
+              </div>
+              <h3 class="project-title">Safe Route Finder</h3>
+              <p class="project-description">
+                Route discovery tool that evaluates travel safety and route options with intelligent 
+                filtering and recommendation logic using TypeScript.
+              </p>
+              <div class="project-highlights">
+                <span><i class="fas fa-map-marked-alt"></i> Route engine</span>
+                <span><i class="fas fa-filter"></i> Smart filtering</span>
+              </div>
+              <div class="tech-stack-row">
+                <span>TypeScript</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 6: Bank Management System -->
+          <div class="project-card" data-category="fullstack" data-aos="fade-up" data-aos-delay="200">
+            <div class="project-card-inner">
+              <div class="project-top">
+                <div class="project-badges">
+                  <span class="project-badge badge-fs">Backend</span>
+                </div>
+                <div class="project-links-top">
+                  <a href="https://github.com/guptayash122006/Bank-Management-System" target="_blank" rel="noopener noreferrer" title="GitHub" aria-label="View on GitHub">
+                    <i class="fab fa-github"></i>
+                  </a>
+                </div>
+              </div>
+              <h3 class="project-title">Bank Management System</h3>
+              <p class="project-description">
+                C++ banking application managing accounts, secure transactions, balance inquiries, 
+                and dependable customer workflows with full OOP principles.
+              </p>
+              <div class="project-highlights">
+                <span><i class="fas fa-university"></i> Full CRUD operations</span>
+                <span><i class="fas fa-lock"></i> OOP design</span>
+              </div>
+              <div class="tech-stack-row">
+                <span>C++</span><span>OOP</span><span>DSA</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== CERTIFICATIONS SECTION ===== -->
+    <section id="certifications" class="certifications-section">
+      <div class="section-container">
+        <div class="section-header" data-aos="fade-up">
+          <span class="section-tag">Credentials</span>
+          <h2 class="section-title">Certifications & Achievements</h2>
+          <p class="section-subtitle">Industry-recognized credentials from leading platforms and institutions</p>
+        </div>
+
+        <div class="certs-grid">
+
+          <div class="cert-card" data-aos="fade-up" data-aos-delay="0">
+            <div class="cert-icon-wrapper nptel">
+              <i class="fas fa-university"></i>
+            </div>
+            <div class="cert-body">
+              <span class="cert-platform">IIT Kharagpur</span>
+              <h3>NPTEL – Database Management System</h3>
+              <span class="cert-year">2026</span>
+            </div>
+          </div>
+
+          <div class="cert-card" data-aos="fade-up" data-aos-delay="100">
+            <div class="cert-icon-wrapper nptel">
+              <i class="fas fa-university"></i>
+            </div>
+            <div class="cert-body">
+              <span class="cert-platform">IIT Roorkee</span>
+              <h3>NPTEL – OOP C++</h3>
+              <span class="cert-year">2025</span>
+            </div>
+          </div>
+
+          <div class="cert-card" data-aos="fade-up" data-aos-delay="200">
+            <div class="cert-icon-wrapper nptel">
+              <i class="fas fa-university"></i>
+            </div>
+            <div class="cert-body">
+              <span class="cert-platform">IIT Kharagpur</span>
+              <h3>NPTEL – Modern C++</h3>
+              <span class="cert-year">2025</span>
+            </div>
+          </div>
+
+          <div class="cert-card" data-aos="fade-up" data-aos-delay="0">
+            <div class="cert-icon-wrapper microsoft">
+              <i class="fas fa-chart-pie"></i>
+            </div>
+            <div class="cert-body">
+              <span class="cert-platform">Microsoft</span>
+              <h3>Power BI – Hands-On Dashboard Certification</h3>
+              <span class="cert-year">May 2026</span>
+            </div>
+          </div>
+
+          <div class="cert-card" data-aos="fade-up" data-aos-delay="100">
+            <div class="cert-icon-wrapper infosys">
+              <i class="fab fa-github"></i>
+            </div>
+            <div class="cert-body">
+              <span class="cert-platform">Infosys Springboard</span>
+              <h3>Git & GitHub Certification</h3>
+              <span class="cert-year">2026</span>
+            </div>
+          </div>
+
+          <div class="cert-card" data-aos="fade-up" data-aos-delay="200">
+            <div class="cert-icon-wrapper ibm">
+              <i class="fas fa-laptop-code"></i>
+            </div>
+            <div class="cert-body">
+              <span class="cert-platform">IBM SkillsBuild</span>
+              <h3>Frontend Dev — Web Development</h3>
+              <span class="cert-year">Jul 2025</span>
+            </div>
+          </div>
+
+          <div class="cert-card" data-aos="fade-up" data-aos-delay="0">
+            <div class="cert-icon-wrapper tcs">
+              <i class="fas fa-user-tie"></i>
+            </div>
+            <div class="cert-body">
+              <span class="cert-platform">TCS iON</span>
+              <h3>Career Edge — Young Professional</h3>
+              <span class="cert-year">2025</span>
+            </div>
+          </div>
+
+          <div class="cert-card" data-aos="fade-up" data-aos-delay="100">
+            <div class="cert-icon-wrapper iit">
+              <i class="fas fa-code"></i>
+            </div>
+            <div class="cert-body">
+              <span class="cert-platform">IIT Bombay</span>
+              <h3>C Programming (82.50%)</h3>
+              <span class="cert-year">2025</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== CONTACT SECTION ===== -->
+    <section id="contact" class="contact-section">
+      <div class="section-container">
+        <div class="section-header" data-aos="fade-up">
+          <span class="section-tag">Let's Talk</span>
+          <h2 class="section-title">Get In Touch</h2>
+          <p class="section-subtitle">Open to internships, collaborations, and interesting projects</p>
+        </div>
+
+        <div class="contact-wrapper">
+          <div class="contact-info" data-aos="fade-right">
+            <h3>Let's Connect</h3>
+            <p>I'm actively looking for <strong>remote fresher internship</strong> opportunities in Data Science or Full Stack Development. Feel free to reach out!</p>
+
+            <div class="contact-items">
+              <a href="mailto:yash12722@gmail.com" class="contact-item">
+                <div class="contact-item-icon email-icon"><i class="fas fa-envelope"></i></div>
+                <div>
+                  <p class="ci-label">Email</p>
+                  <p>yash12722@gmail.com</p>
+                </div>
+              </a>
+
+              <a href="tel:+916377323622" class="contact-item">
+                <div class="contact-item-icon phone-icon"><i class="fas fa-phone"></i></div>
+                <div>
+                  <p class="ci-label">Phone</p>
+                  <p>+91 6377323622</p>
+                </div>
+              </a>
+
+              <a href="https://www.linkedin.com/in/yash12722/" target="_blank" rel="noopener noreferrer" class="contact-item">
+                <div class="contact-item-icon linkedin-icon"><i class="fab fa-linkedin"></i></div>
+                <div>
+                  <p class="ci-label">LinkedIn</p>
+                  <p>linkedin.com/in/yash12722</p>
+                </div>
+              </a>
+
+              <a href="https://github.com/guptayash122006" target="_blank" rel="noopener noreferrer" class="contact-item">
+                <div class="contact-item-icon github-icon"><i class="fab fa-github"></i></div>
+                <div>
+                  <p class="ci-label">GitHub</p>
+                  <p>github.com/guptayash122006</p>
+                </div>
+              </a>
+            </div>
+          </div>
+
+          <form class="contact-form" id="contactForm" data-aos="fade-left">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="contactName">Your Name</label>
+                <input id="contactName" name="name" type="text" placeholder="John Doe" required autocomplete="name">
+              </div>
+              <div class="form-group">
+                <label for="contactEmail">Your Email</label>
+                <input id="contactEmail" name="email" type="email" placeholder="john@company.com" required autocomplete="email">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="contactSubject">Subject</label>
+              <input id="contactSubject" name="subject" type="text" placeholder="Internship Opportunity / Collaboration" required>
+            </div>
+
+            <div class="form-group">
+              <label for="contactMessage">Message</label>
+              <textarea id="contactMessage" name="message" placeholder="Tell me about the role / project..." rows="5" required></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary" id="submitBtn">
+              <i class="fas fa-paper-plane"></i> Send Message
+            </button>
+            <p class="form-note" id="formNote"></p>
+          </form>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-brand">
+        <div class="brand-logo small"><span>YG</span></div>
+        <div>
+          <h4>Yash Gupta</h4>
+          <p>Data Science & Full Stack Developer</p>
+        </div>
+      </div>
+
+      <div class="footer-links">
+        <h5>Navigation</h5>
+        <ul>
+          <li><a href="#hero">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-connect">
+        <h5>Connect</h5>
+        <div class="footer-socials">
+          <a href="https://linkedin.com/in/yash12722" target="_blank" rel="noopener noreferrer" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+          <a href="https://github.com/guptayash122006" target="_blank" rel="noopener noreferrer" title="GitHub"><i class="fab fa-github"></i></a>
+          <a href="mailto:yash12722@gmail.com" title="Email"><i class="fas fa-envelope"></i></a>
+        </div>
+        <p class="footer-location"><i class="fas fa-map-marker-alt"></i> Jaipur, Rajasthan</p>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; 2026 Yash Gupta. Designed & Built with <i class="fas fa-heart"></i> | All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- BACK TO TOP -->
+  <button class="back-to-top" id="backToTop" aria-label="Back to top">
+    <i class="fas fa-chevron-up"></i>
+  </button>
+
+  <script src="script.js"></script>
+  <!-- PRELOADER (deferred so portfolio scripts don't block) -->
+  <script src="preloader.js" defer></script>
+</body>
+</html>
