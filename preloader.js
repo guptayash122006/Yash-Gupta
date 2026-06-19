@@ -46,10 +46,10 @@
     let ctx, angle = 0, rafId, canvasSize;
 
     const MESSAGES = [
-      { text: 'Initializing Secure Connection...', delay: 0 },
-      { text: 'Scanning Developer Profile...',     delay: 700 },
-      { text: 'Verifying Skills Database...',      delay: 1450 },
-      { text: 'Access Granted',                    delay: 2150, grant: true },
+      { text: 'Initializing Portfolio...',        delay: 0 },
+      { text: 'Loading Profile & Projects...',    delay: 700 },
+      { text: 'Preparing Skills & Experience...', delay: 1450 },
+      { text: 'Ready',                            delay: 2150, grant: true },
     ];
 
     function initCanvas() {

@@ -116,18 +116,17 @@ function animateParticles() {
 initParticles();
 animateParticles();
 
-// ===== ROLE ROTATOR =====
+// ===== ROLE ROTATOR (disabled — portfolio uses static headline) =====
+// The role rotator has been replaced with a static headline in the hero section.
+// This block is kept as a no-op to avoid breaking any cached script references.
 const roleItems = document.querySelectorAll('.role-item');
-let currentRole = 0;
-
-function rotateRole() {
-  roleItems[currentRole].classList.remove('active');
-  currentRole = (currentRole + 1) % roleItems.length;
-  roleItems[currentRole].classList.add('active');
-}
-
 if (roleItems.length > 0) {
-  setInterval(rotateRole, 2500);
+  let currentRole = 0;
+  setInterval(() => {
+    roleItems[currentRole].classList.remove('active');
+    currentRole = (currentRole + 1) % roleItems.length;
+    roleItems[currentRole].classList.add('active');
+  }, 2500);
 }
 
 // ===== NAVBAR SCROLL EFFECT =====
